@@ -1,0 +1,6 @@
+# Files never sent to an AI provider (gitignore syntax)
+.env*
+*.tfvars
+*.pem
+*.key
+*.tfstate*

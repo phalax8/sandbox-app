@@ -1,0 +1,12 @@
+language: es
+base_branch: main
+review:
+  depth: standard
+agent:
+  allow:
+    - npm test
+    - npm run lint
+    - npm run typecheck
+    - terraform validate
+  cloud:
+    enabled: false
