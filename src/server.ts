@@ -16,3 +16,7 @@ app.post('/orders/total', (req, res) => {
 if (process.env.NODE_ENV !== 'test') {
   app.listen(Number(process.env.PORT ?? 3000));
 }
+
+app.get('/internal/metrics', (_req, res) => {
+  res.json({ uptime: process.uptime(), memory: process.memoryUsage().rss });
+});
