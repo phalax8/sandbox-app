@@ -13,3 +13,5 @@ export function orderTotal(order: Order): number {
   const subtotal = order.items.reduce((sum, item) => sum + item.price * item.quantity, 0);
   return order.coupon === 'WELCOME' ? Math.round(subtotal * 0.9) : subtotal;
 }
+
+export function discount(total: number, pct: number) { return total - total * pct / 100; }
