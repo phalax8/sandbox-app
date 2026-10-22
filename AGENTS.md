@@ -43,3 +43,9 @@ terraform validate
 - En Python, los cuerpos de petición se modelan con clases `BaseModel` de Pydantic y se usan type hints modernos (`dict[str, int]`). Los errores se señalan con `raise HTTPException(status_code=..., detail="...")`: 404 para un recurso desconocido y 409 para un conflicto de stock, con mensajes `detail` cortos en minúsculas.
 - Los nombres de los tests describen el comportamiento en inglés: `it('adds the items')` en Vitest y `test_refuses_more_than_available` en pytest.
 - En Terraform, los nombres de recursos se construyen con `var.prefix` (por ejemplo `"${var.prefix}-assets"`) y la región se toma de `var.region`.
+
+## Registrar en los logs un pedido completo es siempre una fuga de datos
+
+Escribir en los logs (`console.log`, `console.info`…) un pedido completo es una fuga de datos personales: los pedidos llevan datos de clientes y los logs se envían a un servicio externo. Un hallazgo así es real aunque el log parezca de depuración o temporal; no lo refutes ni rebajes su severidad.
+
+_Promocionado desde el aprendizaje L-c405 de newcoder_
