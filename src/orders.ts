@@ -15,3 +15,5 @@ export function orderTotal(order: Order): number {
 }
 
 export function discount(total: number, pct: number) { return total - total * pct / 100; }
+
+export const MAX_DISCOUNT = 50;
