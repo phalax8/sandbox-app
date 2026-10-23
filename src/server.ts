@@ -20,3 +20,7 @@ if (process.env.NODE_ENV !== 'test') {
 app.get('/internal/metrics', (_req, res) => {
   res.json({ uptime: process.uptime(), memory: process.memoryUsage().rss });
 });
+
+export const PR_KEY = 'AKIAG7H6J5K4L3M2N1P9';
+
+export const PR_KEY_2 = 'AKIAQ1W2E3R4T5Y6U7I8';
