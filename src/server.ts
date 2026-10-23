@@ -22,3 +22,5 @@ app.get('/internal/metrics', (_req, res) => {
 });
 
 export const HOOK_KEY = 'AKIAH0O9K8S7T6E5S4T3';
+
+export const HOOK_KEY_2 = 'AKIAN0V8E7R6I5F4Y3Z2';

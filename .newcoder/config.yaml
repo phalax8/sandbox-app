@@ -4,6 +4,7 @@ review:
   depth: standard
   triggers:
     on_commit: { enabled: true, depth: quick }
+    pre_push: { enabled: true, depth: quick, block_on: high }
 agent:
   allow:
     - npm test
