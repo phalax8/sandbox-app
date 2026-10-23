@@ -1,0 +1,36 @@
+# Remote review of newcoder: reviews each pull request and comments on it.
+# The AI only comments: it never approves nor requests changes.
+name: newcoder
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+permissions:
+  contents: read
+  pull-requests: write
+  security-events: write
+jobs:
+  review:
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm install -g ./ci/newcoder-0.0.0.tgz @anthropic-ai/claude-code
+      - run: newcoder review --pr ci --publish --provider claude-code --format markdown >> "$GITHUB_STEP_SUMMARY"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+      # The findings in Code Scanning; forks cannot upload, so it never fails the job.
+      - run: newcoder review show --format sarif > newcoder.sarif
+        if: always()
+      - uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        continue-on-error: true
+        with:
+          sarif_file: newcoder.sarif
+          category: newcoder
