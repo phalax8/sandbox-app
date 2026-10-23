@@ -2,6 +2,8 @@ language: es
 base_branch: main
 review:
   depth: standard
+  triggers:
+    on_commit: { enabled: true, depth: quick }
 agent:
   allow:
     - npm test

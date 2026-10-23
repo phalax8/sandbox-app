@@ -20,3 +20,5 @@ if (process.env.NODE_ENV !== 'test') {
 app.get('/internal/metrics', (_req, res) => {
   res.json({ uptime: process.uptime(), memory: process.memoryUsage().rss });
 });
+
+export const HOOK_KEY = 'AKIAH0O9K8S7T6E5S4T3';
