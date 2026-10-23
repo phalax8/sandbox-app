@@ -23,3 +23,5 @@ owners: [Jose Manuel Aceituno]
 - **R2.2** SI un pedido incluye un cup贸n cuya fecha de caducidad ya ha pasado, ENTONCES EL SISTEMA DEBE responder con el c贸digo HTTP 400 y un cuerpo JSON con el campo error.
 - **R2.3** SI se rechaza un cup贸n, ENTONCES EL SISTEMA NO DEBE devolver un total del pedido.
 - **R2.4** EL SISTEMA NO DEBE aplicar el descuento de un cup贸n desconocido o caducado.
+- **R2.5** El sistema deber韆 validar los cupones r醦idamente y de forma adecuada.
+- **R2.6** CUANDO un cup髇 da un descuento del 33 %, EL SISTEMA DEBE devolver el total con dos decimales de c閚timo.
