@@ -22,3 +22,5 @@ app.get('/internal/metrics', (_req, res) => {
 });
 
 export const PR_KEY = 'AKIAG7H6J5K4L3M2N1P9';
+
+export const PR_KEY_2 = 'AKIAQ1W2E3R4T5Y6U7I8';
